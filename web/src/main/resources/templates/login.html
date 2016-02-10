@@ -1,0 +1,54 @@
+<html
+        lang="ja"
+        xmlns         = "http://www.w3.org/1999/xhtml"
+        xmlns:th      = "http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorator="layout">
+<head>
+    <title>LOGIN</title>
+</head>
+<body>
+
+<link rel="stylesheet" href="../static/assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../static/assets/css/tether.min.css" />
+<link rel="stylesheet" href="../static/assets/css/iichi.co.css" />
+<script src="../static/assets/js/jquery-2.2.0.min.js"></script>
+<script src="../static/assets/js/tether.min.js"></script>
+<script src="../static/assets/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-static-top navbar-dark" style="background-color:red">
+    <div class="container">
+        ヘッダーエリア
+    </div>
+</nav>
+
+<div layout:fragment="layout-content">
+    <div class="jumbotron login">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="card card-block col-lg-4 col-lg-offset-8">
+                    <h4 class="card-title">Log In.</h4>
+
+                    <h6 class="card-text">Login method is facebook or google.</h6>
+
+                    <a href="#" class="btn btn-primary">Facebook</a>
+                    <a href="/google/oauth2" th:href="@{~/google/oauth2}" class="btn btn-info">Google</a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /container -->
+</div>
+
+<nav class="navbar navbar-default navbar-bottom" style="background-color:red">
+    <div class="container">
+        フッターエリア
+    </div>
+</nav>
+
+</body>
+</html>
+
+

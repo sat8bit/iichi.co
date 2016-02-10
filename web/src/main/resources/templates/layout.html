@@ -1,0 +1,54 @@
+<html
+        lang="ja"
+        xmlns         = "http://www.w3.org/1999/xhtml"
+        xmlns:th      = "http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+    <title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE">iichi.co</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../static/assets/css/bootstrap.min.css" th:href="@{~/assets/css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="../static/assets/css/tether.min.css" th:href="@{~/assets/css/tether.min.css}" />
+    <link rel="stylesheet" href="../static/assets/css/iichi.co.css" th:href="@{~/assets/css/iichi.co.css}" />
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="../static/assets/js/jquery-2.2.0.min.js" th:src="@{~/assets/js/jquery-2.2.0.min.js}"></script>
+    <script src="../static/assets/js/tether.min.js" th:src="@{~/assets/js/tether.min.js}"></script>
+    <script src="../static/assets/js/bootstrap.min.js" th:src="@{~/assets/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<nav class="navbar navbar-static-top navbar-dark" th:fragment="header">
+    <div class="container">
+        <a class="navbar-brand" href="/" th:href="@{~/}">
+            <img class="img-fluid logo" src="../static/assets/img/logo.png" th:src="@{~/assets/img/logo.png}"/>
+        </a>
+
+        <ul class="nav nav-pills pull-xs-right">
+            <li class="nav-item">
+                <a class="nav-link" href="/login"
+                   th:href="${user} ? @{~/accounts} : @{~/login}"
+                   th:text="${user} ? ${user.nickname} : 'LOGIN'">LOGIN</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div layout:fragment="layout-content">
+ここにコンテンツが入ります
+</div>
+
+<nav class="navbar navbar-default navbar-bottom" th:fragment="footer">
+    <div class="container">
+        <hr />
+        <p>&copy; 2015 iichi.co</p>
+    </div>
+</nav>
+
+</body>
+</html>
+
+
