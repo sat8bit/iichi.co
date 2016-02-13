@@ -21,19 +21,6 @@ import javax.persistence.*;
                             "      u.user_id = go.user_id" +
                             "  AND go.google_user_id = :googleUserId",
                     resultClass = UserInfoEntity.class
-            ),
-            @NamedNativeQuery(
-                    name = "UserInfo.BySessionId",
-                    query = "  SELECT" +
-                            "      u.user_id" +
-                            "    , u.nickname" +
-                            "  FROM" +
-                            "      user_info u" +
-                            "    , session s" +
-                            "  WHERE" +
-                            "      u.user_id = s.user_id" +
-                            "  AND s.session_id = :sessionId",
-                    resultClass = UserInfoEntity.class
             )
     }
 )

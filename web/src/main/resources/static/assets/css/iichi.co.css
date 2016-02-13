@@ -8,3 +8,10 @@ img.logo {
     background-size:cover;
     height:420px;
 }
+
+nav.navbar-fixed-bottom form {
+    margin-bottom:0px;
+}
+
+.content {
+}

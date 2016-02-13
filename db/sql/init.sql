@@ -26,3 +26,23 @@ CREATE TABLE `session` (
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`session_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `board` (
+  `board_id` varchar(36) NOT NULL,
+  `board_subject` varchar(128) NOT NULL,
+  `comment_count` INT NOT NULL,
+  `created_by_user_id` VARCHAR(36) NOT NULL,
+  `last_posted_at` DATETIME,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`board_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `comment` (
+  `board_id` varchar(36) NOT NULL,
+  `comment_seq` INT NOT NULL,
+  `posted_by_user_id` VARCHAR(36) NOT NULL,
+  `posted_at` DATETIME,
+  `body` TEXT NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`board_id`, `comment_seq`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

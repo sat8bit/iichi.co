@@ -1,7 +1,7 @@
 package co.iichi;
 
 import co.iichi.domain.User;
-import co.iichi.domain.UserRepository;
+import co.iichi.domain.UserManager;
 import co.iichi.entity.EntityManagerFactories;
 import co.iichi.entity.SessionEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class SessionHandler {
     private static final String ATTRIBUTE_NAME_USER = "userId";
 
     @Autowired
-    protected UserRepository userRepository;
+    protected UserManager userManager;
 
     public Boolean handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws IOException {
 
@@ -56,7 +56,7 @@ public class SessionHandler {
             return Optional.empty();
         }
 
-        return userRepository.getUserByUserId(userId.get());
+        return userManager.getUserByUserId(userId.get());
     }
 
     protected Optional<String> getSessionId(HttpServletRequest httpServletRequest) {
@@ -76,29 +76,38 @@ public class SessionHandler {
 
     protected Optional<String> getUserId(String sessionId) {
         EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
-        SessionEntity sessionEntity = entityManager.find(SessionEntity.class, sessionId);
 
-        if (sessionEntity == null) {
-            return Optional.empty();
+        try {
+            SessionEntity sessionEntity = entityManager.find(SessionEntity.class, sessionId);
+
+            if (sessionEntity == null) {
+                return Optional.empty();
+            }
+
+            return Optional.of(sessionEntity.getUserId());
+        } finally {
+            entityManager.close();
         }
-
-        return Optional.of(sessionEntity.getUserId());
     }
 
     public void write(HttpServletResponse httpServletResponse, User user) {
 
         EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
-        EntityTransaction entityTransaction = entityManager.getTransaction();
-        entityTransaction.begin();
-        SessionEntity sessionEntity = new SessionEntity();
-        sessionEntity.setSessionId(UUID.randomUUID().toString());
-        sessionEntity.setUserId(user.getUserId());
-        entityManager.persist(sessionEntity);
-        entityTransaction.commit();
+        try {
+            EntityTransaction entityTransaction = entityManager.getTransaction();
+            entityTransaction.begin();
+            SessionEntity sessionEntity = new SessionEntity();
+            sessionEntity.setSessionId(UUID.randomUUID().toString());
+            sessionEntity.setUserId(user.getUserId());
+            entityManager.persist(sessionEntity);
+            entityTransaction.commit();
 
-        Cookie cookie = new Cookie(COOKIE_NAME_SESSION_ID, sessionEntity.getSessionId());
-        cookie.setPath("/");
-        httpServletResponse.addCookie(cookie);
+            Cookie cookie = new Cookie(COOKIE_NAME_SESSION_ID, sessionEntity.getSessionId());
+            cookie.setPath("/");
+            httpServletResponse.addCookie(cookie);
+        } finally {
+            entityManager.close();
+        }
     }
 
     public void remove(

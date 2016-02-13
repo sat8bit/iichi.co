@@ -7,7 +7,7 @@ import co.iichi.common.exception.InternalServerErrorException;
 import co.iichi.common.google.oauth2.TokenClient;
 import co.iichi.common.google.oauth2.UserinfoClient;
 import co.iichi.domain.User;
-import co.iichi.domain.UserRepository;
+import co.iichi.domain.UserManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +42,7 @@ public class GoogleOAuth2Controller {
     protected String scope;
 
     @Autowired
-    protected UserRepository userRepository;
+    protected UserManager userManager;
 
     @Autowired
     protected SessionHandler sessionHandler;
@@ -92,7 +92,7 @@ public class GoogleOAuth2Controller {
         logger.info("userInfo is {}", googleUserInfo.get());
 
         // Userの取得
-        User user = userRepository.getUserByGoogleUserId(googleUserInfo.get().getId());
+        User user = userManager.getUserByGoogleUserId(googleUserInfo.get().getId());
         logger.info("login user is {}", user);
         sessionHandler.write(httpServletResponse, user);
 

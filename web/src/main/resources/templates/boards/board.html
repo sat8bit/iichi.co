@@ -1,0 +1,252 @@
+<html
+        lang="ja"
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorator="layout">
+<head>
+    <title>Boards</title>
+</head>
+<body>
+
+<link rel="stylesheet" href="../../static/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="../../static/assets/css/tether.min.css"/>
+<link rel="stylesheet" href="../../static/assets/css/iichi.co.css"/>
+<script src="../../static/assets/js/jquery-2.2.0.min.js"></script>
+<script src="../../static/assets/js/tether.min.js"></script>
+<script src="../../static/assets/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-static-top navbar-dark" style="background-color:red">
+    <div class="container">
+        ヘッダーエリア
+    </div>
+</nav>
+
+<div class="content" layout:fragment="layout-content">
+    <div class="jumbotron">
+        <div class="container">
+            <h4 class="text-xs-center" th:text="${board.boardSubject}">ボード名</h4>
+        </div>
+    </div>
+
+    <div class="container">
+        <div th:remove="all-but-first">
+            <div class="row" th:each="comment : ${commentList}" th:object="${comment}" th:switch="*{postedByUserId}">
+                <div class="col-xs-offset-1 col-xs-11" th:case="${user} ? ${user.userId} : ''">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-11" th:case="*">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分以外の人のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-offset-1 col-xs-11" th:case="${user} ? ${user.userId} : ''">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-11" th:case="*">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分以外の人のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-offset-1 col-xs-11" th:case="${user} ? ${user.userId} : ''">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-11" th:case="*">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分以外の人のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-offset-1 col-xs-11" th:case="${user} ? ${user.userId} : ''">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-11" th:case="*">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分以外の人のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-offset-1 col-xs-11" th:case="${user} ? ${user.userId} : ''">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-11" th:case="*">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分以外の人のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-offset-1 col-xs-11" th:case="${user} ? ${user.userId} : ''">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-11" th:case="*">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分以外の人のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-offset-1 col-xs-11" th:case="${user} ? ${user.userId} : ''">
+                    <div class="card">
+                        <div class="card-header bg-primary">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-11" th:case="*">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-xs-5" th:text="*{postedByUserNicknameShorted}">だれかさん</div>
+                                <div class="col-xs-7 text-xs-right" th:text="*{postedAtFormatted}">2015/02/01 02:02:02</div>
+                            </div>
+                        </div>
+                        <div class="card-block">
+                            <pre class="card-text" th:text="*{body}">自分以外の人のコメント</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-fixed-bottom" th:if="${user}">
+        <div class="container">
+            <form method="POST">
+                <div class="row">
+                    <div class="col-md-10">
+                        <textarea type="text" class="form-control" id="commentBody" name="commentBody" rows="3"></textarea>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-block btn-secondary">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <script>
+                $(function() {
+                    $("#commentBody").focus();
+                });
+            </script>
+        </div>
+    </nav>
+
+</div>
+</body>
+</html>
+
+

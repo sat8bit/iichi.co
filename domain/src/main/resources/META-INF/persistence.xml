@@ -7,6 +7,8 @@
         <class>co.iichi.entity.UserInfoEntity</class>
         <class>co.iichi.entity.GoogleOAuth2Entity</class>
         <class>co.iichi.entity.SessionEntity</class>
+        <class>co.iichi.entity.BoardEntity</class>
+        <class>co.iichi.entity.CommentEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/iichico" />
