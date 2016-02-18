@@ -2,4 +2,5 @@ rootProject.name = 'iichi.co'
 
 include 'common',
         'web',
-        'domain'
+        'core',
+        'board'

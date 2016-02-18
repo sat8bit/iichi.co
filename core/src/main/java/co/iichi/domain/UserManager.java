@@ -2,7 +2,7 @@ package co.iichi.domain;
 
 import co.iichi.common.exception.IichicoException;
 import co.iichi.common.exception.InternalServerErrorException;
-import co.iichi.entity.EntityManagerFactories;
+import co.iichi.entity.CoreEntityManager;
 import co.iichi.entity.GoogleOAuth2Entity;
 import co.iichi.entity.UserInfoEntity;
 import org.slf4j.Logger;
@@ -20,7 +20,7 @@ public class UserManager {
     private static final Logger logger = LoggerFactory.getLogger(UserManager.class);
 
     public Optional<User> getUserByUserId(String userId) {
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = CoreEntityManager.INSTANCE.createEntityManager();
 
         try {
             UserInfoEntity userInfoEntity = entityManager.find(UserInfoEntity.class, userId);
@@ -36,7 +36,7 @@ public class UserManager {
     }
 
     public void update(User user) throws InternalServerErrorException {
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = CoreEntityManager.INSTANCE.createEntityManager();
 
         try {
             EntityTransaction entityTransaction = entityManager.getTransaction();
@@ -55,7 +55,7 @@ public class UserManager {
     }
 
     public User getUserByGoogleUserId(String googleUserId) throws IichicoException {
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = CoreEntityManager.INSTANCE.createEntityManager();
 
         try {
             // DBからUserを探してみる

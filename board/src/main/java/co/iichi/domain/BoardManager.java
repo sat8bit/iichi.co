@@ -3,7 +3,7 @@ package co.iichi.domain;
 import co.iichi.common.util.DateTimeUtils;
 import co.iichi.entity.BoardEntity;
 import co.iichi.entity.CommentEntity;
-import co.iichi.entity.EntityManagerFactories;
+import co.iichi.entity.BoardEntityManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -26,7 +26,7 @@ public class BoardManager {
             String boardSubject,
             String commentBody
     ) {
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = BoardEntityManager.INSTANCE.createEntityManager();
         try {
             Date now = DateTimeUtils.toDate(DateTimeUtils.now());
 
@@ -57,7 +57,7 @@ public class BoardManager {
     }
 
     public List<Board> getBoardListOrderByLastPostedAt(Integer offset, Integer limit) {
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = BoardEntityManager.INSTANCE.createEntityManager();
 
         try {
             List<BoardEntity> boardEntityList = (List<BoardEntity>) entityManager
@@ -75,7 +75,7 @@ public class BoardManager {
     }
 
     public List getCommentListOrderByPostedAt(String boardId, Integer offset, Integer limit) {
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = BoardEntityManager.INSTANCE.createEntityManager();
 
         try {
             List<CommentEntity> commentEntityList = entityManager
@@ -94,7 +94,7 @@ public class BoardManager {
     }
 
     public void comment(String boardId, String userId, String commentBody) {
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = BoardEntityManager.INSTANCE.createEntityManager();
 
         try {
             Date now = DateTimeUtils.toDate(DateTimeUtils.now());
@@ -119,7 +119,7 @@ public class BoardManager {
     }
 
     public Optional<Board> getBoardByBoardId(String boardId) {
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = BoardEntityManager.INSTANCE.createEntityManager();
 
         try {
             BoardEntity boardEntity = entityManager.find(BoardEntity.class, boardId);

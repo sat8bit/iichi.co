@@ -2,7 +2,7 @@ package co.iichi;
 
 import co.iichi.domain.User;
 import co.iichi.domain.UserManager;
-import co.iichi.entity.EntityManagerFactories;
+import co.iichi.entity.CoreEntityManager;
 import co.iichi.entity.SessionEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -75,7 +75,7 @@ public class SessionHandler {
     }
 
     protected Optional<String> getUserId(String sessionId) {
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = CoreEntityManager.INSTANCE.createEntityManager();
 
         try {
             SessionEntity sessionEntity = entityManager.find(SessionEntity.class, sessionId);
@@ -92,7 +92,7 @@ public class SessionHandler {
 
     public void write(HttpServletResponse httpServletResponse, User user) {
 
-        EntityManager entityManager = EntityManagerFactories.IICHICO_MYSQL_UNIT.createEntityManager();
+        EntityManager entityManager = CoreEntityManager.INSTANCE.createEntityManager();
         try {
             EntityTransaction entityTransaction = entityManager.getTransaction();
             entityTransaction.begin();
@@ -104,6 +104,7 @@ public class SessionHandler {
 
             Cookie cookie = new Cookie(COOKIE_NAME_SESSION_ID, sessionEntity.getSessionId());
             cookie.setPath("/");
+            cookie.setMaxAge(60 * 60 * 24 * 365);
             httpServletResponse.addCookie(cookie);
         } finally {
             entityManager.close();
