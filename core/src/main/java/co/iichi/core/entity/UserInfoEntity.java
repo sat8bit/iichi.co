@@ -1,4 +1,4 @@
-package co.iichi.board.entity;
+package co.iichi.core.entity;
 
 import lombok.Data;
 

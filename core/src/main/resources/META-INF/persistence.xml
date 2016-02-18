@@ -4,9 +4,9 @@
              http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/persistence_2_1.xsd">
     <persistence-unit name="coreUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>co.iichi.board.entity.UserInfoEntity</class>
-        <class>co.iichi.board.entity.GoogleOAuth2Entity</class>
-        <class>co.iichi.board.entity.SessionEntity</class>
+        <class>co.iichi.core.entity.UserInfoEntity</class>
+        <class>co.iichi.core.entity.GoogleOAuth2Entity</class>
+        <class>co.iichi.core.entity.SessionEntity</class>
         <class>co.iichi.board.entity.BoardEntity</class>
         <class>co.iichi.board.entity.CommentEntity</class>
         <properties>

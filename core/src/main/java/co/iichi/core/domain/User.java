@@ -1,4 +1,4 @@
-package co.iichi.board.domain;
+package co.iichi.core.domain;
 
 import co.iichi.common.util.ShortenUtils;
 import lombok.Data;

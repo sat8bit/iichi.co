@@ -1,5 +1,6 @@
 package co.iichi.board.entity;
 
+import co.iichi.core.entity.UserInfoEntity;
 import lombok.Data;
 
 import javax.persistence.*;

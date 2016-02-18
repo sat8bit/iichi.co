@@ -1,9 +1,9 @@
 package co.iichi;
 
-import co.iichi.board.domain.User;
-import co.iichi.board.domain.UserManager;
-import co.iichi.board.entity.CoreEntityManager;
-import co.iichi.board.entity.SessionEntity;
+import co.iichi.core.domain.User;
+import co.iichi.core.domain.UserManager;
+import co.iichi.core.entity.CoreEntityManager;
+import co.iichi.core.entity.SessionEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

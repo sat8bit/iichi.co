@@ -4,7 +4,7 @@ package co.iichi.web.controller;
 import co.iichi.SessionHandler;
 import co.iichi.board.domain.Board;
 import co.iichi.board.domain.BoardManager;
-import co.iichi.board.domain.User;
+import co.iichi.core.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

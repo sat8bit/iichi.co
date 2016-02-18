@@ -1,4 +1,4 @@
-package co.iichi.board.entity;
+package co.iichi.core.entity;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

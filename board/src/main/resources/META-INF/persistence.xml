@@ -6,7 +6,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>co.iichi.board.entity.BoardEntity</class>
         <class>co.iichi.board.entity.CommentEntity</class>
-        <class>co.iichi.board.entity.UserInfoEntity</class>
+        <class>co.iichi.core.entity.UserInfoEntity</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/iichico" />
