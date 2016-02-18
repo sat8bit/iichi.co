@@ -1,9 +1,9 @@
-package co.iichi.domain;
+package co.iichi.board.domain;
 
 import co.iichi.common.util.DateTimeUtils;
-import co.iichi.entity.BoardEntity;
-import co.iichi.entity.CommentEntity;
-import co.iichi.entity.BoardEntityManager;
+import co.iichi.board.entity.BoardEntity;
+import co.iichi.board.entity.BoardEntityManager;
+import co.iichi.board.entity.CommentEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

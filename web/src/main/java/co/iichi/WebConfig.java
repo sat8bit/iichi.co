@@ -1,7 +1,7 @@
 package co.iichi;
 
-import co.iichi.filter.AuthenticationRequiredFilter;
-import co.iichi.interceptor.AuthenticationInterceptor;
+import co.iichi.web.filter.AuthenticationRequiredFilter;
+import co.iichi.web.interceptor.AuthenticationInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

@@ -1,8 +1,6 @@
-package co.iichi.entity;
+package co.iichi.board.entity;
 
 import lombok.Data;
-import lombok.Setter;
-import lombok.Value;
 
 import javax.persistence.*;
 import java.io.Serializable;

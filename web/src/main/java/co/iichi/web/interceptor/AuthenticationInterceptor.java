@@ -1,7 +1,7 @@
-package co.iichi.interceptor;
+package co.iichi.web.interceptor;
 
 import co.iichi.SessionHandler;
-import co.iichi.domain.User;
+import co.iichi.board.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

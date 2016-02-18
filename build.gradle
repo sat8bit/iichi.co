@@ -61,10 +61,15 @@ project(":board") {
     }
 }
 
-project(":core") {
+project(":keiba") {
     dependencies {
         compile('com.tinkerpop.blueprints:blueprints-neo4j-graph:2.6.0')
         compile('com.tinkerpop.blueprints:blueprints-core:2.6.0')
+    }
+}
+
+project(":core") {
+    dependencies {
         compile project(":common")
     }
 }

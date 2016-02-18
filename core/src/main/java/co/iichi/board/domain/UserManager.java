@@ -1,10 +1,10 @@
-package co.iichi.domain;
+package co.iichi.board.domain;
 
 import co.iichi.common.exception.IichicoException;
 import co.iichi.common.exception.InternalServerErrorException;
-import co.iichi.entity.CoreEntityManager;
-import co.iichi.entity.GoogleOAuth2Entity;
-import co.iichi.entity.UserInfoEntity;
+import co.iichi.board.entity.CoreEntityManager;
+import co.iichi.board.entity.GoogleOAuth2Entity;
+import co.iichi.board.entity.UserInfoEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;

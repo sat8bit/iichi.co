@@ -1,4 +1,4 @@
-package co.iichi.filter;
+package co.iichi.web.filter;
 
 import co.iichi.SessionHandler;
 import org.slf4j.Logger;

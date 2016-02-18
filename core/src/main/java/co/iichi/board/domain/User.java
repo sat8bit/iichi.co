@@ -1,13 +1,9 @@
-package co.iichi.domain;
+package co.iichi.board.domain;
 
 import co.iichi.common.util.ShortenUtils;
 import lombok.Data;
-import lombok.Setter;
-import lombok.Value;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.UnsupportedEncodingException;
 
 @Data
 public class User {

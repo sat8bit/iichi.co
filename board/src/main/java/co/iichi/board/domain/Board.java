@@ -1,4 +1,4 @@
-package co.iichi.domain;
+package co.iichi.board.domain;
 
 import co.iichi.common.util.DateTimeUtils;
 import lombok.Value;
