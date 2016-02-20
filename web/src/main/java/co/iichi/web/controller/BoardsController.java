@@ -38,7 +38,6 @@ public class BoardsController {
             HttpServletRequest httpServletRequest
     ) {
         Optional<User> user = sessionHandler.getUser(httpServletRequest);
-
         List<Board> boardList = boardManager.getBoardListOrderByLastPostedAt(0, 100);
 
         ModelAndView modelAndView =  new ModelAndView("boards/index");

@@ -4,8 +4,9 @@ package co.iichi.web.controller;
 import co.iichi.SessionHandler;
 import co.iichi.common.exception.IichicoException;
 import co.iichi.common.exception.InternalServerErrorException;
-import co.iichi.common.google.oauth2.TokenClient;
-import co.iichi.common.google.oauth2.UserinfoClient;
+import co.iichi.common.google.oauth2.token.TokenClient;
+import co.iichi.common.google.oauth2.userinfo.UserinfoClient;
+import co.iichi.common.google.oauth2.userinfo.response.Response;
 import co.iichi.core.domain.User;
 import co.iichi.core.domain.UserManager;
 import org.slf4j.Logger;
@@ -84,7 +85,7 @@ public class GoogleOAuth2Controller {
         }
 
         // UserInfoの取得
-        Optional<UserinfoClient.Response> googleUserInfo = userinfoClient.getUserInfoByAccessToken(accessToken.get());
+        Optional<Response> googleUserInfo = userinfoClient.getUserInfoByAccessToken(accessToken.get());
         if (!googleUserInfo.isPresent()) {
             logger.info("can not get user info.");
             throw new InternalServerErrorException();

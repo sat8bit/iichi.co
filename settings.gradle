@@ -4,4 +4,4 @@ include 'common',
         'web',
         'core',
         'board',
-        'keiba'
+        'imp'

@@ -7,3 +7,7 @@ google:
     scope: "https://www.googleapis.com/auth/userinfo.profile"
     token_uri: "https://accounts.google.com/o/oauth2/token"
     userinfo_uri: "https://www.googleapis.com/oauth2/v1/userinfo"
+yjdn:
+  application_id: ""
+  shopping:
+     temsearch_uri: "http://shopping.yahooapis.jp/ShoppingWebService/V1/itemSearch"

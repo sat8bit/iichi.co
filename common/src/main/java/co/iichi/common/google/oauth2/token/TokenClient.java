@@ -1,5 +1,6 @@
-package co.iichi.common.google.oauth2;
+package co.iichi.common.google.oauth2.token;
 
+import co.iichi.common.google.oauth2.token.response.Response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.slf4j.Logger;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 @Component
@@ -56,20 +56,4 @@ public class TokenClient {
             return Optional.empty();
         }
     }
-
-    @Data
-    static class Response {
-        @JsonProperty(value = "access_token")
-        private String accessToken;
-
-        @JsonProperty(value = "token_type")
-        private String tokenType;
-
-        @JsonProperty(value = "expires_in")
-        private String expiresIn;
-
-        @JsonProperty(value = "id_token")
-        private String idToken;
-    }
-
 }

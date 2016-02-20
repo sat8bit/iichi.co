@@ -13,5 +13,13 @@ nav.navbar-fixed-bottom form {
     margin-bottom:0px;
 }
 
-.content {
+.content.margin-top10 {
+    margin-top:10px;
+}
+
+.container.margin-bottom100 {
+    margin-bottom:100px;
+}
+.container.margin-bottom50 {
+    margin-bottom:50px;
 }

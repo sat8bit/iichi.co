@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="container" style="margin-bottom:150px">
+    <div class="container margin-bottom100">
         <div th:remove="all-but-first">
             <div class="row" th:each="comment : ${commentList}" th:object="${comment}" th:switch="*{postedByUserId}">
                 <div class="col-xs-offset-1 col-xs-11" th:case="${user} ? ${user.userId} : ''">
@@ -82,7 +82,6 @@
             </script>
         </div>
     </nav>
-
 </div>
 
 </body>
