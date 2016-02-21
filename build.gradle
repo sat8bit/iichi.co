@@ -23,9 +23,15 @@ subprojects {
         providedCompile('org.projectlombok:lombok:1.16.6')
         testCompile('junit:junit:4.11')
         testCompile('org.mockito:mockito-all:1.8.4')
-        compile('org.hibernate:hibernate-entitymanager:5.1.0.Final')
-        compile('org.hibernate:hibernate-core:5.1.0.Final')
-        compile('org.hibernate:hibernate-c3p0:5.1.0.Final')
+        compile('org.hibernate:hibernate-entitymanager:5.1.0.Final') {
+            exclude module:"dom4j"
+        }
+        compile('org.hibernate:hibernate-core:5.1.0.Final') {
+            exclude module:"dom4j"
+        }
+        compile('org.hibernate:hibernate-c3p0:5.1.0.Final') {
+            exclude module:"dom4j"
+        }
         compile('mysql:mysql-connector-java:5.1.38')
 
     }
@@ -43,6 +49,7 @@ project(":web") {
 
         // bootRun用
         providedRuntime('org.springframework.boot:spring-boot-starter-tomcat:1.3.2.RELEASE')
+        providedRuntime('dom4j:dom4j:1.6.1')
 
         // 以下普通に依存関係
         compile('org.thymeleaf:thymeleaf:2.1.4.RELEASE')
